@@ -41,7 +41,7 @@ python duplicate_finder/main.py
 
 ```bash
 cd duplicate_finder
-pyinstaller --onedir --windowed --icon=resources/app_icon.png --splash=resources/app_icon.png --name=DuplicateFinder --add-data="resources:resources" main.py
+pyinstaller --onedir --windowed --icon=resources/app_icon.png --name=DuplicateFinder --add-data="resources:resources" main.py
 ```
 
 Executable will be in `dist/DuplicateFinder/`.
