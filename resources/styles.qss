@@ -1,0 +1,667 @@
+/* ── TOKENS ────────────────────────────────────────────────────────────────
+   Mode clair par défaut — surcharge [darkMode="true"] pour le mode sombre
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* ── FENÊTRE PRINCIPALE ─────────────────────────────────────────────────── */
+QMainWindow,
+QWidget#CentralWidget,
+QWidget#Body {
+    background-color: #FFFFFF;
+    color: #111827;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    font-size: 14px;
+}
+
+/* ── TOPBAR ──────────────────────────────────────────────────────────────── */
+QWidget#Topbar {
+    background-color: #FFFFFF;
+    min-height: 48px;
+    max-height: 48px;
+}
+
+QFrame#TopbarSeparator {
+    background-color: #E5E7EB;
+    min-height: 1px;
+    max-height: 1px;
+}
+
+QLabel#TopbarLogo {
+    color: #111827;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+QPushButton#TopbarAction {
+    background-color: #F3F4F6;
+    color: #111827;
+    border: 1px solid #E5E7EB;
+    padding: 4px 16px;
+    font-size: 14px;
+    min-height: 36px;
+}
+
+QPushButton#TopbarAction:hover {
+    background-color: #E5E7EB;
+}
+
+QPushButton#TopbarAction:pressed {
+    background-color: #D1D5DB;
+}
+
+QPushButton#ThemeToggleButton {
+    background-color: transparent;
+    border: none;
+    color: #111827;
+    font-size: 18px;
+    min-width: 40px;
+    max-width: 40px;
+    min-height: 40px;
+    max-height: 40px;
+}
+
+QPushButton#ThemeToggleButton:hover {
+    background-color: #F3F4F6;
+}
+
+/* ── SIDEBAR ─────────────────────────────────────────────────────────────── */
+QWidget#Sidebar {
+    background-color: #F9FAFB;
+    min-width: 240px;
+}
+
+QFrame#SidebarSeparator {
+    background-color: #E5E7EB;
+    min-width: 1px;
+    max-width: 1px;
+}
+
+QPushButton#SidebarItem {
+    background-color: transparent;
+    color: #4B5563;
+    border: none;
+    text-align: left;
+    padding: 0px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    min-height: 44px;
+}
+
+QPushButton#SidebarItem:hover {
+    background-color: #F3F4F6;
+    color: #111827;
+}
+
+QPushButton#SidebarItem:checked {
+    background-color: #EFF6FF;
+    color: #2563EB;
+    font-weight: 600;
+}
+
+QPushButton#SidebarItem:disabled {
+    color: #9CA3AF;
+    opacity: 0.4;
+}
+
+/* ── STATUSBAR ───────────────────────────────────────────────────────────── */
+QWidget#Statusbar {
+    background-color: #F3F4F6;
+    min-height: 28px;
+    max-height: 28px;
+}
+
+QFrame#StatusbarSeparator {
+    background-color: #E5E7EB;
+    min-height: 1px;
+    max-height: 1px;
+}
+
+QLabel#StatusbarMessage,
+QLabel#StatusbarInfo {
+    color: #6B7280;
+    font-size: 12px;
+}
+
+QProgressBar#StatusbarProgress {
+    background-color: #E5E7EB;
+    border: none;
+    min-height: 8px;
+    max-height: 8px;
+}
+
+QProgressBar#StatusbarProgress::chunk {
+    background-color: #2563EB;
+}
+
+/* ── CONTENU PRINCIPAL ───────────────────────────────────────────────────── */
+QWidget#ScanView,
+QWidget#ResultsView,
+QStackedWidget#ContentStack {
+    background-color: #FFFFFF;
+}
+
+QLabel#SectionTitle {
+    color: #111827;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+QLabel#SectionSubtitle {
+    color: #4B5563;
+    font-size: 14px;
+}
+
+/* ── GROUPBOX ────────────────────────────────────────────────────────────── */
+QGroupBox#ScanGroupBox {
+    color: #111827;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid #E5E7EB;
+    margin-top: 8px;
+    padding-top: 12px;
+}
+
+QGroupBox#ScanGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    padding: 0 6px;
+    color: #111827;
+}
+
+/* ── LISTE DOSSIERS ──────────────────────────────────────────────────────── */
+QListWidget#FolderList {
+    background-color: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    color: #111827;
+    font-size: 13px;
+    outline: none;
+}
+
+QListWidget#FolderList::item {
+    padding: 6px 10px;
+    min-height: 32px;
+}
+
+QListWidget#FolderList::item:selected {
+    background-color: #EFF6FF;
+    color: #2563EB;
+}
+
+QListWidget#FolderList::item:hover {
+    background-color: #F3F4F6;
+}
+
+/* ── OPTIONS SCAN ────────────────────────────────────────────────────────── */
+QCheckBox#ScanCheckBox,
+QRadioButton#ScanRadio,
+QLabel#OptionLabel {
+    color: #111827;
+    font-size: 14px;
+}
+
+QCheckBox#ScanCheckBox::indicator {
+    width: 16px;
+    height: 16px;
+}
+
+QRadioButton#ScanRadio::indicator {
+    width: 16px;
+    height: 16px;
+}
+
+/* ── BOUTONS ─────────────────────────────────────────────────────────────── */
+QPushButton#BtnPrimary {
+    background-color: #2563EB;
+    color: #FFFFFF;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    min-height: 36px;
+}
+
+QPushButton#BtnPrimary:hover {
+    background-color: #1D4ED8;
+}
+
+QPushButton#BtnPrimary:pressed {
+    background-color: #1E40AF;
+}
+
+QPushButton#BtnPrimary:disabled {
+    background-color: #BFDBFE;
+    color: #93C5FD;
+}
+
+QPushButton#BtnSecondary {
+    background-color: #F3F4F6;
+    color: #111827;
+    border: 1px solid #E5E7EB;
+    padding: 4px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    min-height: 36px;
+}
+
+QPushButton#BtnSecondary:hover {
+    background-color: #E5E7EB;
+}
+
+QPushButton#BtnSecondary:pressed {
+    background-color: #D1D5DB;
+}
+
+QPushButton#BtnSecondary:disabled {
+    background-color: #F3F4F6;
+    color: #9CA3AF;
+}
+
+QPushButton#BtnDanger {
+    background-color: #DC2626;
+    color: #FFFFFF;
+    border: none;
+    padding: 4px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    min-height: 36px;
+}
+
+QPushButton#BtnDanger:hover {
+    background-color: #B91C1C;
+}
+
+QPushButton#BtnDanger:pressed {
+    background-color: #991B1B;
+}
+
+QPushButton#BtnDanger:disabled {
+    background-color: #FECACA;
+    color: #FCA5A5;
+}
+
+/* ── ARBRE RÉSULTATS ─────────────────────────────────────────────────────── */
+QTreeWidget#ResultsTree {
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    color: #111827;
+    font-size: 13px;
+    outline: none;
+    alternate-background-color: #FFFFFF;
+}
+
+QTreeWidget#ResultsTree::item {
+    min-height: 40px;
+    padding: 0 4px;
+    border-bottom: 1px solid #F3F4F6;
+}
+
+QTreeWidget#ResultsTree::item:hover {
+    background-color: #F3F4F6;
+}
+
+QTreeWidget#ResultsTree::item:selected {
+    background-color: #EFF6FF;
+    color: #2563EB;
+}
+
+QHeaderView::section {
+    background-color: #F9FAFB;
+    color: #4B5563;
+    font-size: 13px;
+    font-weight: 600;
+    border: none;
+    border-bottom: 2px solid #D1D5DB;
+    padding: 6px 8px;
+}
+
+QHeaderView::section:hover {
+    background-color: #F3F4F6;
+}
+
+/* ── SCROLLBARS ──────────────────────────────────────────────────────────── */
+QScrollBar:vertical {
+    background-color: #F9FAFB;
+    width: 8px;
+    border: none;
+}
+
+QScrollBar::handle:vertical {
+    background-color: #D1D5DB;
+    min-height: 32px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background-color: #9CA3AF;
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+
+QScrollBar:horizontal {
+    background-color: #F9FAFB;
+    height: 8px;
+    border: none;
+}
+
+QScrollBar::handle:horizontal {
+    background-color: #D1D5DB;
+    min-width: 32px;
+}
+
+QScrollBar::handle:horizontal:hover {
+    background-color: #9CA3AF;
+}
+
+QScrollBar::add-line:horizontal,
+QScrollBar::sub-line:horizontal {
+    width: 0px;
+}
+
+/* ── DIALOGUES ───────────────────────────────────────────────────────────── */
+QMessageBox,
+QInputDialog,
+QFileDialog {
+    background-color: #FFFFFF;
+    color: #111827;
+    font-size: 14px;
+}
+
+QMessageBox QPushButton,
+QInputDialog QPushButton,
+QFileDialog QPushButton {
+    background-color: #F3F4F6;
+    color: #111827;
+    border: 1px solid #E5E7EB;
+    padding: 4px 16px;
+    min-height: 32px;
+    min-width: 80px;
+}
+
+QMessageBox QPushButton:hover,
+QInputDialog QPushButton:hover,
+QFileDialog QPushButton:hover {
+    background-color: #E5E7EB;
+}
+
+QInputDialog QLineEdit,
+QFileDialog QLineEdit {
+    background-color: #FFFFFF;
+    color: #111827;
+    border: 1px solid #E5E7EB;
+    padding: 4px 10px;
+    min-height: 36px;
+    font-size: 14px;
+}
+
+QInputDialog QLineEdit:focus,
+QFileDialog QLineEdit:focus {
+    border: 2px solid #2563EB;
+}
+
+/* ── CHAMP RECHERCHE ─────────────────────────────────────────────────────── */
+QLineEdit#SearchInput {
+    background-color: #FFFFFF;
+    color: #111827;
+    border: 1px solid #E5E7EB;
+    padding: 4px 12px;
+    font-size: 14px;
+    min-height: 36px;
+}
+
+QLineEdit#SearchInput:focus {
+    border: 2px solid #2563EB;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   MODE SOMBRE — surcharge via propriété darkMode="true" sur MainWindow
+   ══════════════════════════════════════════════════════════════════════════ */
+
+QMainWindow[darkMode="true"],
+QMainWindow[darkMode="true"] QWidget#CentralWidget,
+QMainWindow[darkMode="true"] QWidget#Body {
+    background-color: #111827;
+    color: #F9FAFB;
+}
+
+QMainWindow[darkMode="true"] QWidget#Topbar {
+    background-color: #111827;
+}
+
+QMainWindow[darkMode="true"] QFrame#TopbarSeparator {
+    background-color: #374151;
+}
+
+QMainWindow[darkMode="true"] QLabel#TopbarLogo {
+    color: #F9FAFB;
+}
+
+QMainWindow[darkMode="true"] QPushButton#TopbarAction {
+    background-color: #1F2937;
+    color: #F9FAFB;
+    border: 1px solid #374151;
+}
+
+QMainWindow[darkMode="true"] QPushButton#TopbarAction:hover {
+    background-color: #374151;
+}
+
+QMainWindow[darkMode="true"] QPushButton#ThemeToggleButton {
+    color: #F9FAFB;
+}
+
+QMainWindow[darkMode="true"] QPushButton#ThemeToggleButton:hover {
+    background-color: #1F2937;
+}
+
+QMainWindow[darkMode="true"] QWidget#Sidebar {
+    background-color: #1F2937;
+}
+
+QMainWindow[darkMode="true"] QFrame#SidebarSeparator {
+    background-color: #374151;
+}
+
+QMainWindow[darkMode="true"] QPushButton#SidebarItem {
+    color: #D1D5DB;
+}
+
+QMainWindow[darkMode="true"] QPushButton#SidebarItem:hover {
+    background-color: #374151;
+    color: #F9FAFB;
+}
+
+QMainWindow[darkMode="true"] QPushButton#SidebarItem:checked {
+    background-color: #1E3A8A;
+    color: #60A5FA;
+}
+
+QMainWindow[darkMode="true"] QWidget#Statusbar {
+    background-color: #1F2937;
+}
+
+QMainWindow[darkMode="true"] QFrame#StatusbarSeparator {
+    background-color: #374151;
+}
+
+QMainWindow[darkMode="true"] QLabel#StatusbarMessage,
+QMainWindow[darkMode="true"] QLabel#StatusbarInfo {
+    color: #9CA3AF;
+}
+
+QMainWindow[darkMode="true"] QProgressBar#StatusbarProgress {
+    background-color: #374151;
+}
+
+QMainWindow[darkMode="true"] QProgressBar#StatusbarProgress::chunk {
+    background-color: #60A5FA;
+}
+
+QMainWindow[darkMode="true"] QWidget#ScanView,
+QMainWindow[darkMode="true"] QWidget#ResultsView,
+QMainWindow[darkMode="true"] QStackedWidget#ContentStack {
+    background-color: #111827;
+}
+
+QMainWindow[darkMode="true"] QLabel#SectionTitle {
+    color: #F9FAFB;
+}
+
+QMainWindow[darkMode="true"] QLabel#SectionSubtitle {
+    color: #D1D5DB;
+}
+
+QMainWindow[darkMode="true"] QGroupBox#ScanGroupBox {
+    color: #F9FAFB;
+    border: 1px solid #374151;
+}
+
+QMainWindow[darkMode="true"] QGroupBox#ScanGroupBox::title {
+    color: #F9FAFB;
+}
+
+QMainWindow[darkMode="true"] QListWidget#FolderList {
+    background-color: #1F2937;
+    border: 1px solid #374151;
+    color: #F9FAFB;
+}
+
+QMainWindow[darkMode="true"] QListWidget#FolderList::item:selected {
+    background-color: #1E3A8A;
+    color: #60A5FA;
+}
+
+QMainWindow[darkMode="true"] QListWidget#FolderList::item:hover {
+    background-color: #374151;
+}
+
+QMainWindow[darkMode="true"] QCheckBox#ScanCheckBox,
+QMainWindow[darkMode="true"] QRadioButton#ScanRadio,
+QMainWindow[darkMode="true"] QLabel#OptionLabel {
+    color: #F9FAFB;
+}
+
+QMainWindow[darkMode="true"] QPushButton#BtnPrimary {
+    background-color: #2563EB;
+    color: #FFFFFF;
+}
+
+QMainWindow[darkMode="true"] QPushButton#BtnPrimary:hover {
+    background-color: #1D4ED8;
+}
+
+QMainWindow[darkMode="true"] QPushButton#BtnPrimary:disabled {
+    background-color: #1E3A8A;
+    color: #374151;
+}
+
+QMainWindow[darkMode="true"] QPushButton#BtnSecondary {
+    background-color: #1F2937;
+    color: #F9FAFB;
+    border: 1px solid #374151;
+}
+
+QMainWindow[darkMode="true"] QPushButton#BtnSecondary:hover {
+    background-color: #374151;
+}
+
+QMainWindow[darkMode="true"] QPushButton#BtnSecondary:disabled {
+    color: #4B5563;
+}
+
+QMainWindow[darkMode="true"] QPushButton#BtnDanger {
+    background-color: #DC2626;
+    color: #FFFFFF;
+}
+
+QMainWindow[darkMode="true"] QPushButton#BtnDanger:hover {
+    background-color: #B91C1C;
+}
+
+QMainWindow[darkMode="true"] QPushButton#BtnDanger:disabled {
+    background-color: #7F1D1D;
+    color: #991B1B;
+}
+
+QMainWindow[darkMode="true"] QTreeWidget#ResultsTree {
+    background-color: #111827;
+    border: 1px solid #374151;
+    color: #F9FAFB;
+}
+
+QMainWindow[darkMode="true"] QTreeWidget#ResultsTree::item:hover {
+    background-color: #1F2937;
+}
+
+QMainWindow[darkMode="true"] QTreeWidget#ResultsTree::item:selected {
+    background-color: #1E3A8A;
+    color: #60A5FA;
+}
+
+QMainWindow[darkMode="true"] QHeaderView::section {
+    background-color: #1F2937;
+    color: #D1D5DB;
+    border-bottom: 2px solid #4B5563;
+}
+
+QMainWindow[darkMode="true"] QHeaderView::section:hover {
+    background-color: #374151;
+}
+
+QMainWindow[darkMode="true"] QScrollBar:vertical,
+QMainWindow[darkMode="true"] QScrollBar:horizontal {
+    background-color: #1F2937;
+}
+
+QMainWindow[darkMode="true"] QScrollBar::handle:vertical,
+QMainWindow[darkMode="true"] QScrollBar::handle:horizontal {
+    background-color: #4B5563;
+}
+
+QMainWindow[darkMode="true"] QScrollBar::handle:vertical:hover,
+QMainWindow[darkMode="true"] QScrollBar::handle:horizontal:hover {
+    background-color: #6B7280;
+}
+
+QMainWindow[darkMode="true"] QMessageBox,
+QMainWindow[darkMode="true"] QInputDialog,
+QMainWindow[darkMode="true"] QFileDialog {
+    background-color: #1F2937;
+    color: #F9FAFB;
+}
+
+QMainWindow[darkMode="true"] QMessageBox QPushButton,
+QMainWindow[darkMode="true"] QInputDialog QPushButton,
+QMainWindow[darkMode="true"] QFileDialog QPushButton {
+    background-color: #374151;
+    color: #F9FAFB;
+    border: 1px solid #4B5563;
+}
+
+QMainWindow[darkMode="true"] QMessageBox QPushButton:hover,
+QMainWindow[darkMode="true"] QInputDialog QPushButton:hover,
+QMainWindow[darkMode="true"] QFileDialog QPushButton:hover {
+    background-color: #4B5563;
+}
+
+QMainWindow[darkMode="true"] QInputDialog QLineEdit,
+QMainWindow[darkMode="true"] QFileDialog QLineEdit {
+    background-color: #111827;
+    color: #F9FAFB;
+    border: 1px solid #374151;
+}
+
+QMainWindow[darkMode="true"] QInputDialog QLineEdit:focus,
+QMainWindow[darkMode="true"] QFileDialog QLineEdit:focus {
+    border: 2px solid #60A5FA;
+}
+
+QMainWindow[darkMode="true"] QLineEdit#SearchInput {
+    background-color: #1F2937;
+    color: #F9FAFB;
+    border: 1px solid #374151;
+}
+
+QMainWindow[darkMode="true"] QLineEdit#SearchInput:focus {
+    border: 2px solid #60A5FA;
+}
