@@ -1,8 +1,8 @@
 import sys
 from pathlib import Path
 
-from PyQt6.QtWidgets import QApplication
-from PyQt6.QtGui import QFont, QIcon
+from PyQt6.QtWidgets import QApplication, QSplashScreen
+from PyQt6.QtGui import QFont, QIcon, QPixmap
 from PyQt6.QtCore import Qt
 
 from config import APP_NAME, ORG_NAME, SCAN_SECTION, Theme
@@ -21,6 +21,7 @@ def load_stylesheet(app: QApplication, path: Path) -> None:
     if icon_path.exists():
         app.setWindowIcon(QIcon(str(icon_path)))
 
+
 def apply_theme(window: MainWindow, prefs: Preferences, app: QApplication) -> None:
     """Determine and apply the correct theme."""
     theme_val = prefs.theme
@@ -35,6 +36,34 @@ def apply_theme(window: MainWindow, prefs: Preferences, app: QApplication) -> No
     app.setStyle("Fusion")
 
 
+def create_splash(icon_path: Path) -> QSplashScreen | None:
+    """Create a fixed-size splash screen with the app icon centered."""
+    if not icon_path.exists():
+        return None
+
+    splash_size = 200
+    pixmap = QPixmap(splash_size, splash_size)
+    pixmap.fill(Qt.GlobalColor.transparent)
+
+    icon_pixmap = QPixmap(str(icon_path)).scaled(
+        splash_size,
+        splash_size,
+        Qt.AspectRatioMode.KeepAspectRatio,
+        Qt.TransformationMode.SmoothTransformation,
+    )
+
+    from PyQt6.QtGui import QPainter
+    painter = QPainter(pixmap)
+    x = (splash_size - icon_pixmap.width()) // 2
+    y = (splash_size - icon_pixmap.height()) // 2
+    painter.drawPixmap(x, y, icon_pixmap)
+    painter.end()
+
+    splash = QSplashScreen(pixmap, Qt.WindowType.WindowStaysOnTopHint | Qt.WindowType.SplashScreen)
+    splash.setFixedSize(splash_size, splash_size)
+    return splash
+
+
 def main() -> None:
     app = QApplication(sys.argv)
     app.setApplicationName(APP_NAME)
@@ -42,6 +71,12 @@ def main() -> None:
 
     font = QFont("Segoe UI", 10)
     app.setFont(font)
+
+    icon_path = Path(__file__).resolve().parent / "resources" / "app_icon.png"
+    splash = create_splash(icon_path)
+    if splash:
+        splash.show()
+        app.processEvents()
 
     prefs = Preferences()
 
@@ -90,6 +125,12 @@ def main() -> None:
     window.sidebar.set_active(SCAN_SECTION)
     window.show_section(SCAN_SECTION)
     window.show()
+
+    if splash:
+        splash.finish(window)
+
+    window.raise_()
+    window.activateWindow()
 
     sys.exit(app.exec())
 
